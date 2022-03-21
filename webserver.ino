@@ -20,7 +20,7 @@ bool led3Status = false; //toggle led on/off
 
 
 // your data
-String studentName = "Halil student nummer 33289"; // jouw student nummer + naam
+String studentName = "Mert student nummer 32840"; // jouw student nummer + naam
 
 
 
@@ -113,13 +113,14 @@ handleRoot();
 
 server.on("/led2", [](){
 if(!led1Status && !digitalRead(Led2)){
-server.send(200, "text/plain", "led2 on");
-digitalWrite(Led2, HIGH);// led 2 on
+//server.send(200, "text/plain", "led2 on");// ga nnar nieuwe webpage
+digitalWrite(Led2, HIGH); // led 2 on
 led1Status = true;
 handleRoot();
 }
 else
-{server.send(200, "text/plain", "led2 off");
+{
+//server.send(200, "text/plain", "led2 off");
 digitalWrite(Led2, LOW); // led 2 off
 led1Status = false;
 handleRoot();
@@ -128,21 +129,22 @@ handleRoot();
 
 
 
+
 server.on("/led3", [](){
-if(!led1Status && !digitalRead(Led3)){
-server.send(200, "text/plain", "led3 on");
-digitalWrite(Led3, HIGH);// led 3 on
+if(!led1Status && !digitalRead(Led2)){
+//server.send(200, "text/plain", "led3 on");// ga nnar nieuwe webpage
+digitalWrite(Led3, HIGH); // led 3 on
 led1Status = true;
 handleRoot();
 }
 else
-{server.send(200, "text/plain", "led3 off");
+{
+//server.send(200, "text/plain", "led3 off");
 digitalWrite(Led3, LOW); // led 3 off
 led1Status = false;
 handleRoot();
 }
 });
-
 
 
 server.onNotFound(handleNotFound);
